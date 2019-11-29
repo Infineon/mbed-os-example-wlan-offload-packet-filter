@@ -1,0 +1,2 @@
+# mbed-os-example-wlan-offload-packet-filter
+This code example demonstrates packet filter offload functionality offered by Cypress WLAN devices. The packet filter offload functionality helps host to enter and stay in Deep Sleep longer and wake up only for the WLAN packets the host wants to service. All other packets would be discarded by the WLAN device itself and doesn't reach the host. PSoC 6 acts as the host in this example.
