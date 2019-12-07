@@ -1,0 +1,68 @@
++ cov-analyze --strip-path /var/tmp/gitlab-runner1/builds/4995f45a/0/wpp/ce/mbed/mbed-os-example-wlan-offload-packet-filter --dir cov-analyze-data --tu-pattern 'success()'
+Coverity Static Analysis version 2018.12 on Linux 4.4.0-116-generic x86_64
+Internal version numbers: c56d2f65de p-pacific-push-35824
+
+Using 16 workers as limited by CPU(s)
+Looking for translation units
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Computing links for 1127 translation units
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Computing virtual overrides
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Computing callgraph
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Topologically sorting 26505 functions
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Computing node costs
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Running analysis
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Exporting summaries
+|0----------25-----------50----------75---------100|
+****************************************************
+[STATUS] Calculating cross-references
+|0----------25-----------50----------75---------100|
+****************************************************
+Analysis summary report:
+------------------------
+Files analyzed                 : 1651
+Total LoC input to cov-analyze : 664981
+Functions analyzed             : 23532
+Classes/structs analyzed       : 2528
+Paths analyzed                 : 786004
+Time taken by analysis         : 00:00:54
+Defect occurrences found       : 219 Total
+                                   3 ARRAY_VS_SINGLETON
+                                   5 BAD_FREE
+                                   1 BAD_OVERRIDE
+                                   2 BAD_SHIFT
+                                  30 CHECKED_RETURN
+                                  12 CONSTANT_EXPRESSION_RESULT
+                                  15 DEADCODE
+                                   3 DIVIDE_BY_ZERO
+                                  14 FORWARD_NULL
+                                   1 IDENTICAL_BRANCHES
+                                   5 MISSING_MOVE_ASSIGNMENT
+                                   1 NEGATIVE_RETURNS
+                                   3 NO_EFFECT
+                                   3 NULL_RETURNS
+                                   1 OVERFLOW_BEFORE_WIDEN
+                                   1 OVERLAPPING_COPY
+                                  35 OVERRUN
+                                  11 PRINTF_ARGS
+                                   5 RESOURCE_LEAK
+                                   9 REVERSE_INULL
+                                   2 SWAPPED_ARGUMENTS
+                                  12 UNINIT
+                                  35 UNINIT_CTOR
+                                   1 UNREACHABLE
+                                   7 UNUSED_VALUE
+                                   2 USE_AFTER_FREE
+
