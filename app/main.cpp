@@ -166,6 +166,7 @@ void app_wl_disconnect(WhdSTAInterface *wifi)
 cy_rslt_t app_wl_print_connect_status(WhdSTAInterface *wifi)
 {
     cy_rslt_t ret = CY_RSLT_TYPE_ERROR;
+    SocketAddress sock_addr;
 
     if (wifi == NULL)
     {
@@ -173,19 +174,22 @@ cy_rslt_t app_wl_print_connect_status(WhdSTAInterface *wifi)
         return ret;
     }
 
+    /* Get ip address */
+    wifi->get_ip_address(&sock_addr);
+
     nsapi_connection_status_t status = wifi->get_connection_status();
-    MBED_APP_INFO(("IP: %s\n", wifi->get_ip_address()));
+    MBED_APP_INFO(("IP: %s\n", sock_addr.get_ip_address()));
 
     switch (status)
     {
         case NSAPI_STATUS_LOCAL_UP:
             MBED_APP_INFO(("CONNECT_STATUS: LOCAL UP.\nWiFi connection already established. "
-                           "IP: %s\n", wifi->get_ip_address()));
+                           "IP: %s\n", sock_addr.get_ip_address()));
             ret = CY_RSLT_SUCCESS;
             break;
         case NSAPI_STATUS_GLOBAL_UP:
             MBED_APP_INFO(("CONNECT_STATUS: GLOBAL UP.\nWiFi connection already established. "
-                           "IP: %s\n", wifi->get_ip_address()));
+                           "IP: %s\n", sock_addr.get_ip_address()));
             ret = CY_RSLT_SUCCESS;
             break;
         case NSAPI_STATUS_CONNECTING:
@@ -225,6 +229,7 @@ cy_rslt_t app_wl_connect(WhdSTAInterface *wifi, const char *ssid,
                          const char *pass, nsapi_security_t security)
 {
     cy_rslt_t ret = CY_RSLT_SUCCESS;
+    SocketAddress sock_addr;
 
     MBED_APP_INFO(("SSID: %s, Security: %d\n", ssid, security));
 
@@ -245,10 +250,13 @@ cy_rslt_t app_wl_connect(WhdSTAInterface *wifi, const char *ssid,
 
     if (CY_RSLT_SUCCESS == ret) {
         MBED_APP_INFO(("MAC\t: %s\n", wifi->get_mac_address()));
-        MBED_APP_INFO(("Netmask\t: %s\n", wifi->get_netmask()));
-        MBED_APP_INFO(("Gateway\t: %s\n", wifi->get_gateway()));
+        wifi->get_netmask(&sock_addr);
+        MBED_APP_INFO(("Netmask\t: %s\n", sock_addr.get_ip_address()));
+        wifi->get_gateway(&sock_addr);
+        MBED_APP_INFO(("Gateway\t: %s\n", sock_addr.get_ip_address()));
         MBED_APP_INFO(("RSSI\t: %d\n\n", wifi->get_rssi()));
-        MBED_APP_INFO(("IP Addr\t: %s\n\n", wifi->get_ip_address()));
+        wifi->get_ip_address(&sock_addr);
+        MBED_APP_INFO(("IP Addr\t: %s\n\n", sock_addr.get_ip_address()));
     } else {
         MBED_APP_INFO(("\nWiFi connection ERROR: %ld\n", ret));
         ret = CY_RSLT_TYPE_ERROR;

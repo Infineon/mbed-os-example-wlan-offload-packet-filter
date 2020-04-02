@@ -650,6 +650,7 @@ cy_rslt_t app_http_server_init(WhdSTAInterface *wifi, HTTPServer *server)
 {
     cy_network_interface_t nw_interface;
     cy_rslt_t result = CY_RSLT_SUCCESS;
+    SocketAddress sock_addr;
 
     nw_interface.object = (void *)wifi;
     nw_interface.type   = CY_NW_INF_TYPE_WIFI;
@@ -678,11 +679,11 @@ cy_rslt_t app_http_server_init(WhdSTAInterface *wifi, HTTPServer *server)
     {
         ERR_INFO(("Starting HTTP server failed.\r\n"));
     }
-    else if (wifi->get_ip_address() != NULL)
+    else
     {
-        APP_INFO(("HTTP server started successfully. Go to the webpage http://%s\r\n", wifi->get_ip_address()));
-    } else {
-        ERR_INFO(("Failed to connect.\n"));
+        /* Get ip address */
+        wifi->get_ip_address(&sock_addr);
+        APP_INFO(("HTTP server started successfully. Go to the webpage http://%s\r\n", sock_addr.get_ip_address()));
     }
 
     return result;
