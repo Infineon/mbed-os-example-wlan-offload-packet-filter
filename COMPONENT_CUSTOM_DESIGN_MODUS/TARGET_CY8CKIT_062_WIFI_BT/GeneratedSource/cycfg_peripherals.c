@@ -4,11 +4,13 @@
 * Description:
 * Peripheral Hardware Block configuration
 * This file was automatically generated and should not be modified.
-* Device Configurator: 2.0.0.1483
-* Device Support Library (../../../psoc6pdl): 1.3.1.1499
+* Tools Package 2.1.0.1266
+* psoc6pdl 1.6.1.4886
+* personalities_2.0 2.0.0.0
+* udd 1.2.0.473
 *
 ********************************************************************************
-* Copyright 2017-2019 Cypress Semiconductor Corporation
+* Copyright 2020 Cypress Semiconductor Corporation
 * SPDX-License-Identifier: Apache-2.0
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,48 +28,3 @@
 
 #include "cycfg_peripherals.h"
 
-const cy_stc_scb_uart_config_t CYBSP_BT_UART_config = 
-{
-	.uartMode = CY_SCB_UART_STANDARD,
-	.enableMutliProcessorMode = false,
-	.smartCardRetryOnNack = false,
-	.irdaInvertRx = false,
-	.irdaEnableLowPowerReceiver = false,
-	.oversample = 8,
-	.enableMsbFirst = false,
-	.dataWidth = 8UL,
-	.parity = CY_SCB_UART_PARITY_NONE,
-	.stopBits = CY_SCB_UART_STOP_BITS_1,
-	.enableInputFilter = false,
-	.breakWidth = 11UL,
-	.dropOnFrameError = false,
-	.dropOnParityError = false,
-	.receiverAddress = 0x0UL,
-	.receiverAddressMask = 0x0UL,
-	.acceptAddrInFifo = false,
-	.enableCts = true,
-	.ctsPolarity = CY_SCB_UART_ACTIVE_LOW,
-	.rtsRxFifoLevel = 63,
-	.rtsPolarity = CY_SCB_UART_ACTIVE_LOW,
-	.rxFifoTriggerLevel = 1UL,
-	.rxFifoIntEnableMask = 0UL,
-	.txFifoTriggerLevel = 63UL,
-	.txFifoIntEnableMask = 0UL,
-};
-#if defined (CY_USING_HAL)
-	const cyhal_resource_inst_t CYBSP_BT_UART_obj = 
-	{
-		.type = CYHAL_RSC_SCB,
-		.block_num = 2U,
-		.channel_num = 0U,
-	};
-#endif //defined (CY_USING_HAL)
-
-
-void init_cycfg_peripherals(void)
-{
-	Cy_SysClk_PeriphAssignDivider(PCLK_SCB2_CLOCK, CY_SYSCLK_DIV_8_BIT, 4U);
-#if defined (CY_USING_HAL)
-	cyhal_hwmgr_reserve(&CYBSP_BT_UART_obj);
-#endif //defined (CY_USING_HAL)
-}

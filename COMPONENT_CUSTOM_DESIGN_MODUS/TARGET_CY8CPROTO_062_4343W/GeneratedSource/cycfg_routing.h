@@ -4,11 +4,13 @@
 * Description:
 * Establishes all necessary connections between hardware elements.
 * This file was automatically generated and should not be modified.
-* Device Configurator: 2.0.0.1483
-* Device Support Library (../../../psoc6pdl): 1.3.1.1499
+* Tools Package 2.1.0.1266
+* psoc6pdl 1.6.1.4886
+* personalities_2.0 2.0.0.0
+* udd 1.2.0.473
 *
 ********************************************************************************
-* Copyright 2017-2019 Cypress Semiconductor Corporation
+* Copyright 2020 Cypress Semiconductor Corporation
 * SPDX-License-Identifier: Apache-2.0
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,14 +34,10 @@ extern "C" {
 #endif
 
 #include "cycfg_notices.h"
-void init_cycfg_routing(void);
+static inline void init_cycfg_routing(void) {}
 #define init_cycfg_connectivity() init_cycfg_routing()
 #define ioss_0_port_0_pin_0_ANALOG P0_0_SRSS_WCO_IN
 #define ioss_0_port_0_pin_1_ANALOG P0_1_SRSS_WCO_OUT
-#define ioss_0_port_3_pin_0_HSIOM P3_0_SCB2_UART_RX
-#define ioss_0_port_3_pin_1_HSIOM P3_1_SCB2_UART_TX
-#define ioss_0_port_3_pin_2_HSIOM P3_2_SCB2_UART_RTS
-#define ioss_0_port_3_pin_3_HSIOM P3_3_SCB2_UART_CTS
 #define ioss_0_port_6_pin_4_HSIOM P6_4_CPUSS_SWJ_SWO_TDO
 #define ioss_0_port_6_pin_6_HSIOM P6_6_CPUSS_SWJ_SWDIO_TMS
 #define ioss_0_port_6_pin_7_HSIOM P6_7_CPUSS_SWJ_SWCLK_TCLK

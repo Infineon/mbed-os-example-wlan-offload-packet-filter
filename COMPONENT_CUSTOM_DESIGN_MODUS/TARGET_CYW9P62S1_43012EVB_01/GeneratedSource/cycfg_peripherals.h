@@ -1,14 +1,16 @@
 /*******************************************************************************
-* File Name: cycfg_routing.c
+* File Name: cycfg_peripherals.h
 *
 * Description:
-* Establishes all necessary connections between hardware elements.
+* Peripheral Hardware Block configuration
 * This file was automatically generated and should not be modified.
-* Device Configurator: 2.0.0.1483
-* Device Support Library (../../../psoc6pdl): 1.3.1.1499
+* Tools Package 2.1.0.1266
+* psoc6pdl 1.6.1.4886
+* personalities_2.0 2.0.0.0
+* udd 1.2.0.473
 *
 ********************************************************************************
-* Copyright 2017-2019 Cypress Semiconductor Corporation
+* Copyright 2020 Cypress Semiconductor Corporation
 * SPDX-License-Identifier: Apache-2.0
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,8 +26,18 @@
 * limitations under the License.
 ********************************************************************************/
 
-#include "cycfg_routing.h"
+#if !defined(CYCFG_PERIPHERALS_H)
+#define CYCFG_PERIPHERALS_H
 
-void init_cycfg_routing(void)
-{
+#include "cycfg_notices.h"
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
+
+#if defined(__cplusplus)
 }
+#endif
+
+
+#endif /* CYCFG_PERIPHERALS_H */

@@ -4,11 +4,13 @@
 * Description:
 * Peripheral Hardware Block configuration
 * This file was automatically generated and should not be modified.
-* Device Configurator: 2.0.0.1483
-* Device Support Library (../../../psoc6pdl): 1.3.1.1499
+* Tools Package 2.1.0.1266
+* psoc6pdl 1.6.1.4886
+* personalities_2.0 2.0.0.0
+* udd 1.2.0.473
 *
 ********************************************************************************
-* Copyright 2017-2019 Cypress Semiconductor Corporation
+* Copyright 2020 Cypress Semiconductor Corporation
 * SPDX-License-Identifier: Apache-2.0
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,26 +30,10 @@
 #define CYCFG_PERIPHERALS_H
 
 #include "cycfg_notices.h"
-#include "cy_scb_uart.h"
-#include "cy_sysclk.h"
-#if defined (CY_USING_HAL)
-	#include "cyhal_hwmgr.h"
-#endif //defined (CY_USING_HAL)
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
 
-#define CYBSP_BT_UART_ENABLED 1U
-#define CYBSP_BT_UART_HW SCB2
-#define CYBSP_BT_UART_IRQ scb_2_interrupt_IRQn
-
-extern const cy_stc_scb_uart_config_t CYBSP_BT_UART_config;
-#if defined (CY_USING_HAL)
-	extern const cyhal_resource_inst_t CYBSP_BT_UART_obj;
-#endif //defined (CY_USING_HAL)
-
-void init_cycfg_peripherals(void);
 
 #if defined(__cplusplus)
 }

@@ -2,24 +2,21 @@
     "config": {
         "wifi-ssid": {
             "help": "WiFi SSID",
-            "value": "\"\""
+            "value": "\"WIFI_SSID\""
         },
         "wifi-password": {
             "help": "WiFi Password",
-            "value": "\"\""
+            "value": "\"WIFI_PASSWORD\""
         },
         "wifi-security": {
             "help": "Options are NSAPI_SECURITY_WEP, NSAPI_SECURITY_WPA, NSAPI_SECURITY_WPA2, NSAPI_SECURITY_WPA_WPA2",
             "value": "NSAPI_SECURITY_WPA_WPA2"
-        },
-        "olm-test": {
-            "help": "OLM Offload test enable",
-            "value": "1"
         }
     },
  
     "target_overrides": {
         "*": {
+            "target.components_add": ["MBED"],
             "platform.stdio-convert-newlines": true,
             "platform.cpu-stats-enabled": true
         },
@@ -32,6 +29,18 @@
             "target.components_add":["CUSTOM_DESIGN_MODUS"]
         },
         "CY8CKIT_062_WIFI_BT": {
+            "target.components_remove": ["BSP_DESIGN_MODUS"],
+            "target.components_add":["CUSTOM_DESIGN_MODUS"]
+        },
+        "CY8CPROTO_062S3_4343W": {
+            "target.components_remove": ["BSP_DESIGN_MODUS"],
+            "target.components_add":["CUSTOM_DESIGN_MODUS"]
+        },
+        "CYW9P62S1_43438EVB_01": {
+            "target.components_remove": ["BSP_DESIGN_MODUS"],
+            "target.components_add":["CUSTOM_DESIGN_MODUS"]
+        },
+        "CYW9P62S1_43012EVB_01": {
             "target.components_remove": ["BSP_DESIGN_MODUS"],
             "target.components_add":["CUSTOM_DESIGN_MODUS"]
         }
